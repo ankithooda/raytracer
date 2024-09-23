@@ -11,5 +11,5 @@ raytracer:
 
 test:
 	mkdir -p tests/bin
-	gcc -o tests/bin/vector3_test tests/vector3_test.c vector3.c -lm
+	gcc -g -o tests/bin/vector3_test tests/vector3_test.c vector3.c -lm
 	tests/bin/vector3_test
