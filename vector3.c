@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <math.h>
 #include "vector3.h"
 
 
@@ -29,4 +30,42 @@ double y(vector3 *v)
 double z(vector3 *v)
 {
   return v->e[2];
+}
+
+void negate(vector3 *v)
+{
+  v->e[0] = v->e[0] * -1;
+  v->e[1] = v->e[1] * -1;
+  v->e[2] = v->e[2] * -1;
+}
+
+void add(vector3 *v1, vector3 *v2)
+{
+  v1->e[0] = v1->e[0] + v2->e[0];
+  v1->e[1] = v1->e[1] + v2->e[1];
+  v1->e[2] = v1->e[2] + v2->e[2];
+}
+
+void multiply(vector3 *v1, double t)
+{
+  v1->e[0] = v1->e[0] * t;
+  v1->e[1] = v1->e[1] * t;
+  v1->e[2] = v1->e[2] * t;
+}
+
+void divide(vector3 *v1, double t)
+{
+  v1->e[0] = v1->e[0] / t;
+  v1->e[1] = v1->e[1] / t;
+  v1->e[2] = v1->e[2] / t;
+}
+
+double length_sq(vector3* v)
+{
+  return v->e[0] * v->e[0] + v->e[1] * v->e[1] + v->e[2] * v->e[2];
+}
+
+double length(vector3* v)
+{
+  return sqrt(length_sq(v));
 }
