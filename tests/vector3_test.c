@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <math.h>
+#include <stdbool.h>
 #include "../vector3.h"
 
 #define EPSILON 0.0000001
@@ -7,9 +8,9 @@
 int double_eq(double a, double b)
 {
   if (fabs(a - b) < EPSILON) {
-    return 0;
+    return true;
   } else {
-    return 1;
+    return false;
   }
 }
 
@@ -39,9 +40,9 @@ void test_add()
 
   add(v1, v2);
 
-  assert(double_eq(x(v1), 3.33) == 0);
-  assert(double_eq(y(v1), 5.55) == 0);
-  assert(double_eq(z(v1), 7.77) == 0);
+  assert(double_eq(x(v1), 3.33));
+  assert(double_eq(y(v1), 5.55));
+  assert(double_eq(z(v1), 7.77));
 }
 
 void test_multiply()
@@ -50,9 +51,9 @@ void test_multiply()
 
   multiply(v1, 2.22);
 
-  assert(double_eq(x(v1), 4.9284) == 0);
-  assert(double_eq(y(v1), 6.66) == 0);
-  assert(double_eq(z(v1), 14.652) == 0);
+  assert(double_eq(x(v1), 4.9284));
+  assert(double_eq(y(v1), 6.66));
+  assert(double_eq(z(v1), 14.652));
 }
 
 void test_multiply_vec()
@@ -62,9 +63,9 @@ void test_multiply_vec()
 
   vector3 *v3 = multiply_vec(v1, v2);
 
-  assert(double_eq(x(v3), 3.2190) == 0);
-  assert(double_eq(y(v3), 13.68) == 0);
-  assert(double_eq(z(v3), 51.48) == 0);
+  assert(double_eq(x(v3), 3.2190));
+  assert(double_eq(y(v3), 13.68));
+  assert(double_eq(z(v3), 51.48));
 }
 
 void test_divide()
@@ -73,9 +74,9 @@ void test_divide()
 
   divide(v1, 2.45);
 
-  assert(double_eq(x(v1), 0.9061224) == 0);
-  assert(double_eq(y(v1), 1.2244897) == 0);
-  assert(double_eq(z(v1), 2.6938775) == 0);
+  assert(double_eq(x(v1), 0.9061224));
+  assert(double_eq(y(v1), 1.2244897));
+  assert(double_eq(z(v1), 2.6938775));
 
 }
 
@@ -84,7 +85,7 @@ void test_length_sq()
   vector3 *v = create(1.2, 2.3, 3.4);
   double l = length_sq(v);
 
-  assert(double_eq(l, 18.2899999) == 0);
+  assert(double_eq(l, 18.2899999));
 }
 
 
@@ -93,7 +94,7 @@ void test_length()
   vector3 *v = create(1.2, 2.3, 3.4);
   double l = length(v);
 
-  assert(double_eq(l, 4.2766809) == 0);
+  assert(double_eq(l, 4.2766809));
 }
 
 void test_dot()
@@ -103,7 +104,7 @@ void test_dot()
 
   double dot_product = dot(v1, v2);
 
-  assert(double_eq(dot_product, 48.0862852));
+  assert(double_eq(dot_product, 48.086312));
 }
 
 void test_cross()
@@ -113,9 +114,9 @@ void test_cross()
 
   vector3 *v3 = cross(v1, v2);
 
-  assert(double_eq(x(v3), -8.567802) == 0);
-  assert(double_eq(y(v3), 4.7899891) == 0);
-  assert(double_eq(z(v3), -0.158875) == 0);
+  assert(double_eq(x(v3), -8.567802));
+  assert(double_eq(y(v3), 4.7899891));
+  assert(double_eq(z(v3), -0.158875));
 }
 
 void test_unit_vector()
@@ -124,9 +125,9 @@ void test_unit_vector()
 
   vector3 *unit = unit_vector(v1);
 
-  assert(double_eq(x(unit), 0.2318632) == 0);
-  assert(double_eq(y(unit), 0.4434479) == 0);
-  assert(double_eq(z(unit), 0.8657906) == 0);
+  assert(double_eq(x(unit), 0.2318632));
+  assert(double_eq(y(unit), 0.4434479));
+  assert(double_eq(z(unit), 0.8657906));
 }
 
 int main()
