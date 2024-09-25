@@ -106,7 +106,6 @@ void test_dot()
   assert(double_eq(dot_product, 48.0862852));
 }
 
-// TODO : Devise a better double comparison operator.
 void test_cross()
 {
   vector3 *v1 = create(1.22, 2.3333, 4.55555);
@@ -114,9 +113,20 @@ void test_cross()
 
   vector3 *v3 = cross(v1, v2);
 
-  //assert(double_eq(x(v3), -8.567802));
-  //assert(double_eq(y(v3), 4.7899891));
-  //assert(double_eq(z(v3), -0.158875));
+  assert(double_eq(x(v3), -8.567802) == 0);
+  assert(double_eq(y(v3), 4.7899891) == 0);
+  assert(double_eq(z(v3), -0.158875) == 0);
+}
+
+void test_unit_vector()
+{
+  vector3 *v1 = create(1.22, 2.3333, 4.55555);
+
+  vector3 *unit = unit_vector(v1);
+
+  assert(double_eq(x(unit), 0.2318632) == 0);
+  assert(double_eq(y(unit), 0.4434479) == 0);
+  assert(double_eq(z(unit), 0.8657906) == 0);
 }
 
 int main()
@@ -130,6 +140,7 @@ int main()
   test_length_sq();
   test_length();
   test_dot();
-  //test_cross();
+  test_cross();
+  test_unit_vector();
   return 0;
 }

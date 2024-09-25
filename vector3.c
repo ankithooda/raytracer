@@ -96,3 +96,13 @@ vector3 *cross(vector3 *v1, vector3 *v2)
                 v1->e[0] * v2->e[1] - v1->e[1] * v2->e[0]
                 );
 }
+
+vector3 *unit_vector(vector3* v)
+{
+  double len = length(v);
+
+  return create(v->e[0] / len,
+                v->e[1] / len,
+                v->e[2] / len
+                );
+}
