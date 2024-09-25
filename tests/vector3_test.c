@@ -55,6 +55,18 @@ void test_multiply()
   assert(double_eq(z(v1), 14.652) == 0);
 }
 
+void test_multiply_vec()
+{
+  vector3 *v1 = create(2.22, 3.0, 6.6);
+  vector3 *v2 = create(1.45, 4.56, 7.8);
+
+  vector3 *v3 = multiply_vec(v1, v2);
+
+  assert(double_eq(x(v3), 3.2190) == 0);
+  assert(double_eq(y(v3), 13.68) == 0);
+  assert(double_eq(z(v3), 51.48) == 0);
+}
+
 void test_divide()
 {
   vector3 *v1 = create(2.22, 3.0, 6.6);
@@ -84,14 +96,40 @@ void test_length()
   assert(double_eq(l, 4.2766809) == 0);
 }
 
+void test_dot()
+{
+  vector3 *v1 = create(1.34, 4.56, 11.34);
+  vector3 *v2 = create(2.98222, 1.92929, 3.11222);
+
+  double dot_product = dot(v1, v2);
+
+  assert(double_eq(dot_product, 48.0862852));
+}
+
+// TODO : Devise a better double comparison operator.
+void test_cross()
+{
+  vector3 *v1 = create(1.22, 2.3333, 4.55555);
+  vector3 *v2 = create(2.45, 4.5555, 5.22222);
+
+  vector3 *v3 = cross(v1, v2);
+
+  //assert(double_eq(x(v3), -8.567802));
+  //assert(double_eq(y(v3), 4.7899891));
+  //assert(double_eq(z(v3), -0.158875));
+}
+
 int main()
 {
   test_create_and_getters();
   test_negate();
   test_add();
   test_multiply();
+  test_multiply_vec();
   test_divide();
   test_length_sq();
   test_length();
+  test_dot();
+  //test_cross();
   return 0;
 }

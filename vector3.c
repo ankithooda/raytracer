@@ -53,6 +53,15 @@ void multiply(vector3 *v1, double t)
   v1->e[2] = v1->e[2] * t;
 }
 
+vector3 *multiply_vec(vector3 *v1, vector3 *v2)
+{
+  return create(
+                v1->e[0] * v2->e[0],
+                v1->e[1] * v2->e[1],
+                v1->e[2] * v2->e[2]
+                );
+}
+
 void divide(vector3 *v1, double t)
 {
   v1->e[0] = v1->e[0] / t;
@@ -68,4 +77,22 @@ double length_sq(vector3* v)
 double length(vector3* v)
 {
   return sqrt(length_sq(v));
+}
+
+double dot(vector3 *v1, vector3 *v2)
+{
+  return (
+          v1->e[0] * v2->e[0]
+          + v1->e[1] * v2->e[1]
+          + v1->e[2] * v2->e[2]
+          );
+}
+
+vector3 *cross(vector3 *v1, vector3 *v2)
+{
+  return create(
+                v1->e[1] * v2->e[2] - v1->e[2] * v2->e[1],
+                v1->e[2] * v2->e[0] - v1->e[0] * v2->e[2],
+                v1->e[0] * v2->e[1] - v1->e[1] * v2->e[0]
+                );
 }
