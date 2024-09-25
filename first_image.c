@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "vector3.h"
 
 int main()
 {
@@ -15,11 +16,14 @@ int main()
       double g = (double)j / (image_height-1);
       double b = 0;
 
-      int ir = (int)(255.999 * r);
-      int ig = (int)(255.999 * g);
-      int ib = (int)(255.999 * b);
+      color3 *color = create(r, g, b);
+      write_color(stdout, color);
 
-      fprintf(stdout, "%d %d %d\n", ir, ig, ib);
+      /* int ir = (int)(255.999 * r); */
+      /* int ig = (int)(255.999 * g); */
+      /* int ib = (int)(255.999 * b); */
+
+      /* fprintf(stdout, "%d %d %d\n", ir, ig, ib); */
     }
   }
 

@@ -1,5 +1,5 @@
 first_image:
-	mkdir -p bin && gcc -O3 -o bin/first_image first_image.c
+	mkdir -p bin && gcc -O3 -o bin/first_image first_image.c vector3.c color3.c
 
 hello: first_image
 	mkdir -p images && bin/first_image > images/first_image
