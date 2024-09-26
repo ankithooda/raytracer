@@ -1,9 +1,13 @@
+#ifndef VECTOR3_H
+#define VECTOR3_H
+
 #include <stdio.h>
 
 struct vector3 {
   double e[3];
 };
 typedef struct vector3 vector3;
+typedef struct vector3 point3;
 typedef struct vector3 color3;
 
 vector3 *create(double x, double y, double z);
@@ -24,3 +28,5 @@ vector3 *unit_vector(vector3 *v);
 
 // Color Functions
 void write_color(FILE *out, color3 *color);
+
+#endif
